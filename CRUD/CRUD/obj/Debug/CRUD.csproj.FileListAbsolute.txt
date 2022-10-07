@@ -51,6 +51,8 @@ C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\roslyn\vbc.rsp
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\roslyn\VBCSCompiler.exe
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\Antlr3.Runtime.dll
+C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\EntityFramework.dll
+C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\EntityFramework.SqlServer.dll
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\Newtonsoft.Json.dll
@@ -62,6 +64,8 @@ C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\System.Web.WebPages.De
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\System.Web.WebPages.dll
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\System.Web.WebPages.Razor.dll
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\WebGrease.dll
+C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\EntityFramework.xml
+C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\EntityFramework.SqlServer.xml
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\System.Web.Helpers.xml
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\System.Web.Mvc.xml
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\System.Web.Optimization.xml
@@ -79,8 +83,8 @@ C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\es\System.Web.Razor.re
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\es\System.Web.WebPages.resources.dll
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\obj\Debug\CRUD.csproj.AssemblyReference.cache
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\obj\Debug\CRUD.csproj.CoreCompileInputs.cache
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\obj\Debug\CRUD.csproj.CopyComplete
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\obj\Debug\CRUD.dll
 C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\obj\Debug\CRUD.pdb
+C:\Users\PROBOOK\Desktop\Proyectos\CRUD_MVC\CRUD\CRUD\obj\Debug\CRUD.csproj.AssemblyReference.cache

@@ -13,18 +13,68 @@
 
             <div class="card-body">
                 <table id="tbPersona" class="table">
-                   <thead>
-                       <tr>
-                           <td>Nombres</td>
-                           <td>Apellidos</td>
-                           <td>Correo</td>
-                       </tr>
-                       
-                   </thead>
+                    <thead>
+                        <tr>
+                            <td>Nombres</td>
+                            <td>Apellidos</td>
+                            <td>Correo</td>
+                            <td></td>
 
-                    
+                        </tr>
+
+                    </thead>
+
+
                 </table>
             </div>
         </div>
     </div>
 </div>
+
+
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+            $('#tbPersona').DataTable({
+                "ajax": {
+                    "url": "@Url.Action("listar", "Persona")",
+                    "type": "GET",
+                    "dataType": "json"
+                },
+
+                /*Aca armo las columnas y filas en el datatable*/
+                "columns": [
+                    { "data": "nombre" },
+                    { "data": "apellido" },
+                    { "data": "correo" },
+                    { "data": "idPersonas", "render": function (data) {
+                        return "<button class='btn btn-primary btn-sm type='button' onclick='abrirModal(" + data + ")' <i class='fa solid fa pen-to-square'></i></button>" +
+                            "<button class='btn btn-danger btn-sm ml-2 type='button' onclick='Eliminar(" + data + ")' <i class='fa sharp fa solid fa-trash'></i></button>"
+                        },
+                        "orderable": false,
+                        "searchable": false,
+                        "width": "150px"
+                    }
+                ]
+
+
+            });
+        });
+
+
+
+        function abrirModal($idPersonas) {
+            console.log($idPersonas);
+
+            alert($idPersonas);
+        }
+
+
+        function Eliminar($idPersonas) {
+            alert("Eliminar "+ $idPersonas);
+        }
+
+    </script>
+}
+

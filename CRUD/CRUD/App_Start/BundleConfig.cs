@@ -25,6 +25,19 @@ namespace CRUD
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+
+
+            //Plugins en los bundles le agrego el nombre y el contenido
+            // el nombre seria "~/Content/Plugins/css" que puede ser cualquier cosa respetando el formato
+            bundles.Add(new StyleBundle("~/Content/Plugins/css").Include(
+                      "~/Content/DataTable/css/jquery.dataTables.min.css",
+                      "~/Content/fontawesome/css/all.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Plugins/js").Include(
+              "~/Content/DataTable/js/jquery.dataTables.min.js",
+              "~/Content/fontawesome/js/all.js"));
+
         }
     }
 }
