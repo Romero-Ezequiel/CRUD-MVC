@@ -32,10 +32,12 @@ namespace CRUD
             // el nombre seria "~/Content/Plugins/css" que puede ser cualquier cosa respetando el formato
             bundles.Add(new StyleBundle("~/Content/Plugins/css").Include(
                       "~/Content/DataTable/css/jquery.dataTables.min.css",
+                      "~/Content/DataTable/css/buttons.dataTables.min.css",
                       "~/Content/fontawesome/css/all.css"));
 
             bundles.Add(new StyleBundle("~/Content/Plugins/js").Include(
               "~/Content/DataTable/js/jquery.dataTables.min.js",
+              "~/Content/DataTable/js/dataTables.buttons.min.js",
               "~/Content/fontawesome/js/all.js"));
 
         }

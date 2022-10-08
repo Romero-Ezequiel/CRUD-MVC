@@ -32,11 +32,55 @@
 </div>
 
 
+<!-- Modal -->
+<div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Rol</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!--input type="text" id="txtIdPersona" /-->
+                        <div class="form-group">
+                            <label for="txtNombre">Nombre:</label>
+                            <input type="text" class="form-control" id="txtNombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtApellidos">Apellido:</label>
+                            <input type="text" class="form-control" id="txtApellidos">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtCorreo">Correo:</label>
+                            <input type="text" class="form-control" id="txtCorreo">
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="Guardar()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 @section scripts{
     <script>
 
+        var tabla_persona;
+
         $(document).ready(function () {
-            $('#tbPersona').DataTable({
+            tabla_persona = $('#tbPersona').DataTable({
                 "ajax": {
                     "url": "@Url.Action("listar", "Persona")",
                     "type": "GET",
@@ -49,12 +93,22 @@
                     { "data": "apellido" },
                     { "data": "correo" },
                     { "data": "idPersonas", "render": function (data) {
-                        return "<button class='btn btn-primary btn-sm type='button' onclick='abrirModal(" + data + ")' <i class='fa solid fa pen-to-square'></i></button>" +
-                            "<button class='btn btn-danger btn-sm ml-2 type='button' onclick='Eliminar(" + data + ")' <i class='fa sharp fa solid fa-trash'></i></button>"
+                        return "<button class='btn btn-primary btn-sm' type='button' onclick='abrirModal(" + data + ")'><i class='fas fa-pen'></i></button>" +
+                            "<button class='btn btn-danger btn-sm ml-2' type='button' onclick='Eliminar(" + data + ")'><i class='fa fa-trash'></i></button>"
                         },
                         "orderable": false,
                         "searchable": false,
                         "width": "150px"
+                    }
+                ],
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        text: 'Agregar Nuevo',
+                        attr: { class: 'btn btn-success btn-sm' },
+                        action: function (e, dt, node, config) {
+                            abrirModal(0)
+                        }
                     }
                 ]
 
@@ -65,14 +119,93 @@
 
 
         function abrirModal($idPersonas) {
-            console.log($idPersonas);
 
-            alert($idPersonas);
+            $("#txtIdPersona").val($idPersonas);
+            if ($idPersonas != 0) {
+
+                jQuery.ajax({
+                    url: "@Url.Action("Obtener","Persona")" + "?idPersonas=" + $idPersonas,
+                    type: "GET",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+
+                       // console.log(data);
+
+                        if (data != null) {
+
+                            $("#txtNombre").val(data.nombre);
+                            $("#txtApellidos").val(data.apellido);
+                            $("#txtCorreo").val(data.correo);
+                        }
+
+                    }
+                });
+            } else {
+                $("#txtNombre").val("");
+                $("#txtApellidos").val("");
+                $("#txtCorreo").val("");
+            }
+
+            $('#FormModal').modal('show');
         }
 
+        function Guardar() {
+            var $data = {
+                oPersona: {
+                    idPersonas: parseInt($("#txtIdPersona").val()),
+                    nombre: $("#txtNombre").val(),
+                    apellido: $("#txtApellidos").val(),
+                    correo: $("#txtCorreo").val(),
+                }
+
+
+            }
+            console.log($data);
+
+           jQuery.ajax({
+                url: "@Url.Action("Guardar", "Persona")",
+                type: "POST",
+                data: JSON.stringify($data),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                    if (data.resultado) {
+                        tabla_persona.ajax.reload();
+                        $('#FormModal').modal('hide');
+                    } else {
+                        alert("No se pudo guardar los cambios");
+                    }
+                },
+                error: function (error) {
+                    console.log(error)
+                },
+                beforeSend: function () {
+
+                }
+           });
+            console.log($data);
+        }
 
         function Eliminar($idPersonas) {
-            alert("Eliminar "+ $idPersonas);
+            if (confirm("¿Realmente desea eliminar?")) {
+
+                jQuery.ajax({
+                    url: "@Url.Action("Eliminar", "Persona")" + "?idPersonas=" + $idPersonas,
+                    type: "GET",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+
+                        if (data.resultado) {
+                            tabla_persona.ajax.reload();
+                        }
+                    }
+                });
+
+
+            }
         }
 
     </script>
